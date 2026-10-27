@@ -1,15 +1,22 @@
 # Cybersecurity-chatbot
 
-This repository contains a cybersecurity chatbot called CYBERFRIDAY.
+A modern cybersecurity assistant named CYBERFRIDAY.
 
 ## Features
 - Password strength analysis
-- Phishing indicator detection
-- Log analysis for suspicious activity
-- Incident response guidance
-- Optional OpenAI-compatible API support
+- Phishing detection based on message patterns
+- Suspicious log review
+- Incident response playbook hints
+- Streamlit dashboard for quick analysis
+- Optional OpenAI-powered chat responses
 
-## Run locally
+## Project structure
+- `cybersecurity_chatbot.py` — core logic and CLI assistant
+- `app.py` — Streamlit web dashboard
+- `.env.example` — environment configuration template
+- `requirements.txt` — dependencies
+
+## Run the CLI assistant
 
 ```bash
 python -m venv .venv
@@ -19,20 +26,22 @@ cp .env.example .env
 python cybersecurity_chatbot.py
 ```
 
-Add your OpenAI API key to `.env` if you want AI-powered responses.
+## Run the dashboard
 
-## Example interactions
+```bash
+streamlit run app.py
+```
+
+## Example prompts
 
 ```text
-You: hello
-CYBERFRIDAY: Hello. I am CYBERFRIDAY, your cybersecurity assistant.
-
-You: password MyPassword123!
-CYBERFRIDAY: Strong: Good length and complexity.
-
-You: phishing Urgent! Your account has been suspended. Click here to verify your credentials.
-CYBERFRIDAY: Possible phishing attempt detected. Risk indicators: urgency language, credential harvesting language, potentially insecure URL.
-
-You: log Failed password for admin from 192.168.1.10
-CYBERFRIDAY: Possible brute-force or credential attack. Block the source if unauthorized and review login logs.
+hello
+password MyPassword123!
+phishing Urgent! Your account has been suspended. Click here to verify your credentials.
+log Failed password for admin from 192.168.1.10
+report suspicious login attempts from multiple IPs
 ```
+
+## Notes
+- The app works in offline mode without an API key.
+- Add your OpenAI key to `.env` to enable AI-generated responses.
